@@ -28,11 +28,11 @@ def delete_last():
     entry.delete(0, tk.END)  # Clear the display entry
     entry.insert(0, current[:-1])  # Insert the current value without the last character
 
-# Create the main window (the root window)
+# Creating the main window (the root window)
 root = tk.Tk()
 root.title("Calculator")  # Set the window title
 
-# Create an entry widget to display the input and output (results)
+# Creating an entry widget to display the input and output (results)
 entry = tk.Entry(root, width=20, font=("Arial", 24), borderwidth=2, relief="solid", justify="right")
 entry.grid(row=0, column=0, columnspan=4)  # Place the entry in the window using grid layout
 
@@ -45,7 +45,7 @@ buttons = [
     ('<', 5, 0), ('=', 5, 1, 3)  # Row 5: Buttons "<" (backspace) and "=" (calculate)
 ]
 
-# Add buttons to the window using a loop
+# Adding buttons to the window using a loop
 for (text, row, col, *span) in buttons:
     if text == '=':  # If the button is "=" (calculate button)
         button = tk.Button(root, text=text, width=10, height=3, font=("Arial", 18), command=calculate)
@@ -60,7 +60,7 @@ for (text, row, col, *span) in buttons:
         button = tk.Button(root, text=text, width=10, height=3, font=("Arial", 18), command=lambda value=text: button_click(value))
         button.grid(row=row, column=col, sticky="nsew")  # Place the number/operation buttons
 
-# Make the buttons expand over the window space using row and column configurations
+# Making the buttons expand over the window space using row and column configurations
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(1, weight=1)
 root.grid_rowconfigure(2, weight=1)
@@ -73,5 +73,5 @@ root.grid_columnconfigure(1, weight=1)
 root.grid_columnconfigure(2, weight=1)
 root.grid_columnconfigure(3, weight=1)
 
-# Start the main event loop of the application to make the GUI interactive
+# Starting the main event loop of the application to make the GUI interactive
 root.mainloop()
